@@ -4,6 +4,7 @@ end
 
 class Array
   def hash
+    my_arr = self.map {|ele| ele = ele.hash}
   end
 end
 
