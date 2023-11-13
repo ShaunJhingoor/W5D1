@@ -16,13 +16,13 @@ end
 
 class String
   def hash
-   arr = self.chars
-   total = []
-   arr.each_with_index do |el, i|
-    total << i
-   end 
-
-   total.inject{|acc,el| acc + el * 2}.hash
+    alpha = 'abcdefghijklmnopqrstuvwxyz'
+    my_hash = {}
+    ('a'..'z').to_a.each_with_index do |ele, i|
+      my_hash[ele] = i
+    end
+    nums = self.chars.map!{|ele| ele = my_hash[ele.downcase] unless !alpha.include?(ele.downcase)}
+    nums.inject{|acc,el| acc + el * 7}.hash
   end
 end
 
